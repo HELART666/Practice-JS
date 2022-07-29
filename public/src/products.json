@@ -1,0 +1,30 @@
+[
+        {
+            "id": 1,
+            "img": "macbook_pro.png",
+            "name": "MacBook Pro 13",
+            "title": "Neque porro quisquam est qui dolorem <br> ipsum quia dolor sit amet",
+            "price": "1200"
+        },
+        {
+            "id": 2,
+            "img": "galaxy_watch.png",
+            "name": "Smart Galaxy Watch 3",
+            "title": "Neque porro quisquam est qui dolorem <br> ipsum quia dolor sit amet",
+            "price": "199"
+        },
+        {
+            "id": 3,
+            "img": "macbook_air.png",
+            "name": "MacBook Air M1",
+            "title": "Neque porro quisquam est qui dolorem <br> ipsum quia dolor sit amet",
+            "price": "1009"
+        },
+        {
+            "id": 4,
+            "img": "ipad.png",
+            "name": "Ipad",
+            "title": "Neque porro quisquam est qui dolorem <br> ipsum quia dolor sit amet",
+            "price": "610"
+        }
+        ]
