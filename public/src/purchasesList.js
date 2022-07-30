@@ -39,8 +39,7 @@ window.addEventListener('click', function(event){
                 <div class="delete" data-action="delete"><img src="img/delete.svg" alt="" class="purchases__delete" ></div>
             </div>
         </div>
-</div>
-<div class="purchase__sum">Total: </div>`;
+</div>`;
 
     cardWrapper.insertAdjacentHTML('beforeend', cardItemHTML);
 

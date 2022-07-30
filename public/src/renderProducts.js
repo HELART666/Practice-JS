@@ -2,13 +2,30 @@ const productsContainer = document.querySelector('#products-container');
 const deleteButton = document.querySelector('.delete');
 
 
-getProducts();
+getProducts('/posts');
 
 let counter = 1;
 
 
+let deleteItems = () =>{
+    const items = document.querySelectorAll('.items__wrapper');
+
+    for(let i = 0; i < items.length; i++){
+        items[i].remove();
+    }
+}
+
 
 window.addEventListener('click', function(event){
+
+
+    if(event.target.dataset.action === "get"){
+        deleteItems();
+        getProducts('/posts?_sort=price&_order=asc');
+    
+     }
+
+
     
     if(event.target.dataset.action === "plus" || event.target.dataset.action === "minus"){
         const countWrapper = event.target.closest('.items__count');
@@ -39,10 +56,9 @@ window.addEventListener('click', function(event){
      }
 });
 
-async function getProducts() {
-    const response = await fetch('/posts');
+async function getProducts(get) {
+    const response = await fetch(get);
     const productsArray = await response.json();
-
 
     renderProducts(productsArray);
 }
