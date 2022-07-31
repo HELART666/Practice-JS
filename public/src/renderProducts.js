@@ -1,8 +1,12 @@
 const productsContainer = document.querySelector('#products-container');
 const deleteButton = document.querySelector('.delete');
 const form = document.getElementById('form');
+const listWrapper = document.querySelector('.purchases__items');
+const listTotalPrice = document.querySelector('.purchases__price');
 
+listTotalPrice.classList.add('nones');
 
+cardPrice();
 
 let resp = form.querySelector('#selectID').value; //получаем поле name;
 let priceGTE = form.querySelector('#inputGTE').value; //получаем поле name
@@ -53,6 +57,18 @@ let deleteItems = () =>{
 
 window.addEventListener('click', function(event){
 
+    if(event.target.dataset.action === "productsButton"){
+        const products = document.querySelector('.most__selled');
+        let topPx = products.getBoundingClientRect().top;
+        console.log(topPx);
+        
+            window.scrollTo({
+                top: topPx,
+                left: 0,
+                behavior: "smooth",
+            });
+
+    }
 
     if(event.target.dataset.action === "get"){
         deleteItems();
@@ -69,6 +85,7 @@ window.addEventListener('click', function(event){
      }
 
 
+
     
     if(event.target.dataset.action === "plus" || event.target.dataset.action === "minus"){
         const countWrapper = event.target.closest('.items__count');
@@ -78,6 +95,7 @@ window.addEventListener('click', function(event){
     if(event.target.dataset.action === "delete"){
         event.target.closest('.purchases__item').remove();
         toggleCard();
+        cardPrice();
     }
    
 
@@ -94,10 +112,13 @@ window.addEventListener('click', function(event){
         if(event.target.closest('.purchases__items') && parseInt(counter.innerText) === 0){
             event.target.closest('.purchases__item').remove();
             toggleCard();
+            cardPrice();
         }
-        
-
      }
+     if(event.target.hasAttribute('data-action') && event.target.closest('.purchases__items')){
+        cardPrice();
+    }
+
 });
 
 async function getProducts(get) {

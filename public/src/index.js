@@ -37,6 +37,10 @@ const closePurchase = document.querySelector('.purchases__close');
 const modalPurchase = document.querySelector('.purchases');
 const purchases = document.querySelector('#purchases');
 
+
+
+
+
 closePurchase.addEventListener('click', function(){
     modalPurchase.classList.add('hidden');
 });
@@ -44,6 +48,9 @@ closePurchase.addEventListener('click', function(){
 purchases.addEventListener('click', function(){
     modalPurchase.classList.remove('hidden');
 });
+
+
+
 
 let availableScreenWidth;
 let outerScreenWidth;

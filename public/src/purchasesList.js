@@ -34,7 +34,7 @@ window.addEventListener('click', function(event){
             Count:
             <div class="items__count">
                 <button class="count__control" data-action="minus">-</button>
-                <div class="count" data-counter="">${productInfo.count}</div>
+                <div class="count" data-counter>${productInfo.count}</div>
                 <button class="count__control" data-action="plus">+</button>
                 <div class="delete" data-action="delete"><img src="img/delete.svg" alt="" class="purchases__delete" ></div>
             </div>
@@ -49,5 +49,6 @@ window.addEventListener('click', function(event){
 
        card.querySelector('[data-counter]').innerText = '1';
        toggleCard();
+       cardPrice();
     }
 });

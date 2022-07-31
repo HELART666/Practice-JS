@@ -1,16 +1,26 @@
 let cardPrice = () => {
 
 	const cardItems = document.querySelectorAll('.purchases__item');
+    
+    const totalPriceHTML = document.querySelector('.price__total');
+
+
     let totalPrice = 0;
 
 
     cardItems.forEach(function(item){
-        const amountEl = item.querySelector('[data-counter]').innerText;
-        const priceEl = item.querySelector('.purchase__price').innerText;
+        const amountEL = item.querySelector('[data-counter]').innerHTML; 
+        const priceEL = item.querySelector('.purchase__price').innerHTML; 
+        
 
+        const currentPrice = parseInt(amountEL) * parseInt(priceEL);
 
-        totalPrice += parseInt(amountEl) * parseInt(priceEl);
-        console.log(totalPrice);
+        totalPrice += currentPrice;
+        
 
     });
+
+
+    totalPriceHTML.innerText = totalPrice;
+
 }

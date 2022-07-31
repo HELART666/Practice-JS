@@ -1092,7 +1092,6 @@ img{
     display: flex;
     width: 100%;
     height: 100%;
-    justify-content: space-between;
 }
 
 .items__wrapper {
@@ -1889,6 +1888,8 @@ img{
     text-transform: uppercase;
     color: #000;
     align-items: center;
+    min-width: 207px;
+    max-width: 207px;
 }
 .count {
     font-family: 'Readex Pro';
@@ -2001,21 +2002,22 @@ img{
     text-align: left;
     font-style: normal;
     font-weight: 400;
+    margin-top: 10px;
 }
 .purchases__item{
     display: flex;
-    padding: 20px 0;
+    padding: 10px 0;
 	font-size: 20px;
 	color: #000;
 	line-height: 1.5;
     z-index: 999;
 }
 .purchase__icon {
-    max-width: 125px;
+    max-width: 100px;
     margin-right: 50px;
     display: flex;
     flex-direction: column;
-    max-height: 125px;
+    max-height: 100px;
 }
 .purchase__description {
     display: flex;
@@ -2090,4 +2092,21 @@ img{
     border: 1px solid;
     border-radius: 30px;
     padding: 5px 25px;
+}
+
+.purchases__price {
+    display: flex;
+    font-family: 'Readex Pro';
+    text-align: left;
+    font-style: normal;
+    font-size: 20px;
+}
+.price__total {
+    margin-left: 15px;
+}
+.price__usd {
+    margin-left: 20px;
+}
+.nones{
+    display: none;
 }
