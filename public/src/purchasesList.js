@@ -38,6 +38,7 @@ window.addEventListener('click', function(event){
                 <button class="count__control" data-action="plus">+</button>
                 <div class="delete" data-action="delete"><img src="img/delete.svg" alt="" class="purchases__delete" ></div>
             </div>
+            
         </div>
 </div>`;
 

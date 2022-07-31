@@ -2056,3 +2056,38 @@ img{
 .purchase__sum{
     font-size: 18px;
 }
+
+.filter {
+    font-family: 'Readex Pro';
+    text-align: left;
+    font-style: normal;
+    font-size: 20px;
+}
+.select {
+    font-family: 'Readex Pro';
+    text-align: left;
+    font-style: normal;
+    font-size: 20px;
+}
+.variable {
+    font-family: 'Readex Pro';
+    text-align: left;
+    font-style: normal;
+    font-size: 20px;
+}
+.form__input {
+    font-family: 'Readex Pro';
+    text-align: left;
+    font-style: normal;
+    font-size: 20px;
+}
+.get__control {
+    font-family: 'Readex Pro';
+    text-align: left;
+    font-style: normal;
+    font-size: 20px;
+    background-color:#fff;
+    border: 1px solid;
+    border-radius: 30px;
+    padding: 5px 25px;
+}

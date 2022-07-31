@@ -1,5 +1,40 @@
 const productsContainer = document.querySelector('#products-container');
 const deleteButton = document.querySelector('.delete');
+const form = document.getElementById('form');
+
+
+
+let resp = form.querySelector('#selectID').value; //получаем поле name;
+let priceGTE = form.querySelector('#inputGTE').value; //получаем поле name
+let priceLTE = form.querySelector('#inputLTE').value; //получаем поле name
+
+form.addEventListener('change', function(){
+    resp = form.querySelector('#selectID').value; //получаем поле name;
+    priceGTE = form.querySelector('#inputGTE').value; //получаем поле GTE
+    priceLTE = form.querySelector('#inputLTE').value; //получаем поле GTE
+});
+
+form.addEventListener('submit', function(event){
+    event.preventDefault();    
+
+    const name = form.querySelector('#selectID'); //получаем поле name
+
+    const GTE = form.querySelector('#inputGTE'); //получаем поле GTE
+    const LTE = form.querySelector('#inputLTE'); //получаем поле GTE
+
+    const data = {
+        name: name.value,
+        gte: GTE.value,
+        lte: LTE.value,
+    };
+
+    resp = data.name;
+    priceGTE = data.gte;
+    priceLTE = data.lte;
+    return(data.name);
+});
+
+
 
 
 getProducts('/posts');
@@ -21,8 +56,16 @@ window.addEventListener('click', function(event){
 
     if(event.target.dataset.action === "get"){
         deleteItems();
-        getProducts('/posts?_sort=price&_order=asc');
-    
+        if(priceGTE.length == 0 && priceLTE.length == 0){
+            getProducts(`/posts?manufacturer=${resp}`);
+        } else if(priceGTE.length == 0 && priceLTE.length != 0){
+            getProducts(`/posts?manufacturer=${resp}&price_lte=${parseInt(priceLTE)}`);
+        }
+         else if(priceLTE.length == 0){
+            getProducts(`/posts?manufacturer=${resp}&price_gte=${parseInt(priceGTE)}`);
+        } else if(priceLTE.length != 0 && priceGTE.length != 0){
+            getProducts(`/posts?manufacturer=${resp}&price_gte=${parseInt(priceGTE)}&price_lte=${parseInt(priceLTE)}`);
+        }
      }
 
 
@@ -36,6 +79,7 @@ window.addEventListener('click', function(event){
         event.target.closest('.purchases__item').remove();
         toggleCard();
     }
+   
 
     
 
@@ -80,5 +124,6 @@ let renderProducts = (productsArray) => {
     </div>`;
 
     productsContainer.insertAdjacentHTML('beforeend', productHTML);
+
     })
 }
