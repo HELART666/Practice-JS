@@ -8,23 +8,23 @@ listTotalPrice.classList.add('nones');
 
 cardPrice();
 
-let resp = form.querySelector('#selectID').value; //получаем поле name;
-let priceGTE = form.querySelector('#inputGTE').value; //получаем поле name
-let priceLTE = form.querySelector('#inputLTE').value; //получаем поле name
+let resp = form.querySelector('#selectID').value; 
+let priceGTE = form.querySelector('#inputGTE').value; 
+let priceLTE = form.querySelector('#inputLTE').value; 
 
 form.addEventListener('change', function(){
-    resp = form.querySelector('#selectID').value; //получаем поле name;
-    priceGTE = form.querySelector('#inputGTE').value; //получаем поле GTE
-    priceLTE = form.querySelector('#inputLTE').value; //получаем поле GTE
+    resp = form.querySelector('#selectID').value; 
+    priceGTE = form.querySelector('#inputGTE').value; 
+    priceLTE = form.querySelector('#inputLTE').value; 
 });
 
 form.addEventListener('submit', function(event){
     event.preventDefault();    
 
-    const name = form.querySelector('#selectID'); //получаем поле name
+    const name = form.querySelector('#selectID'); 
 
-    const GTE = form.querySelector('#inputGTE'); //получаем поле GTE
-    const LTE = form.querySelector('#inputLTE'); //получаем поле GTE
+    const GTE = form.querySelector('#inputGTE'); 
+    const LTE = form.querySelector('#inputLTE'); 
 
     const data = {
         name: name.value,
@@ -83,7 +83,10 @@ window.addEventListener('click', function(event){
             getProducts(`/posts?manufacturer=${resp}&price_gte=${parseInt(priceGTE)}&price_lte=${parseInt(priceLTE)}`);
         }
      }
-
+     if(event.target.dataset.action === "reset"){
+        deleteItems();
+        getProducts('/posts');
+     }
 
 
     

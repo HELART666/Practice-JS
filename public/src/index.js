@@ -35,6 +35,7 @@ const coll = document.querySelectorAll(".collapsible");
 const listFooter = document.querySelectorAll('.list__footer');
 const closePurchase = document.querySelector('.purchases__close');
 const modalPurchase = document.querySelector('.purchases');
+const modalPurchaseBody = document.querySelector('.purchases__body');
 const purchases = document.querySelector('#purchases');
 
 
@@ -42,6 +43,10 @@ const purchases = document.querySelector('#purchases');
 
 
 closePurchase.addEventListener('click', function(){
+    modalPurchase.classList.add('hidden');
+});
+
+modalPurchaseBody.addEventListener('click', function(){
     modalPurchase.classList.add('hidden');
 });
 

@@ -2110,3 +2110,14 @@ img{
 .nones{
     display: none;
 }
+.reset {
+    color:#D81946;
+    font-family: 'Readex Pro';
+    text-align: left;
+    font-style: normal;
+    font-size: 20px;
+    background-color:#fff;
+    border: 1px solid;
+    border-radius: 30px;
+    padding: 5px 25px;
+}
