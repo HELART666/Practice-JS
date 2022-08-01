@@ -46,9 +46,7 @@ closePurchase.addEventListener('click', function(){
     modalPurchase.classList.add('hidden');
 });
 
-modalPurchaseBody.addEventListener('click', function(){
-    modalPurchase.classList.add('hidden');
-});
+
 
 purchases.addEventListener('click', function(){
     modalPurchase.classList.remove('hidden');
