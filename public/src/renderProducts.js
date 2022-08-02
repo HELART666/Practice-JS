@@ -32,19 +32,7 @@ form.addEventListener('submit', function(event){
     const GTE = form.querySelector('#inputGTE'); 
     const LTE = form.querySelector('#inputLTE'); 
 
-    const sortByAscending = form.querySelector('#ascending'); 
-    const sortByDescending= form.querySelector('#descending'); 
-
-    if(sortByAscending.checked){
-        ascending = "ascending";
-    } else{
-        ascending = "";
-    }
-    if(sortByDescending.checked){
-        descending = "descending";
-    } else{
-        descending = "";
-    }
+    
     
     const data = {
         name: name.value,
@@ -77,6 +65,16 @@ let deleteItems = () =>{
 
 window.addEventListener('click', function(event){
 
+    if(sortByAscending.checked){
+        ascending = "ascending";
+    } else{
+        ascending = "";
+    }
+    if(sortByDescending.checked){
+        descending = "descending";
+    } else{
+        descending = "";
+    }
     if(event.target.dataset.action === "productsButton"){
         const products = document.querySelector('.most__selled');
         let topPx = products.getBoundingClientRect().top;
