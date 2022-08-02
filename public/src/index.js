@@ -37,8 +37,25 @@ const closePurchase = document.querySelector('.purchases__close');
 const modalPurchase = document.querySelector('.purchases');
 const modalPurchaseBody = document.querySelector('.purchases__body');
 const purchases = document.querySelector('#purchases');
+const buttonAscSort = document.querySelector('#by__asc');
+const buttonDescSort = document.querySelector('#by__desc');
+const sortByAscending = form.querySelector('#ascending'); 
+const sortByDescending= form.querySelector('#descending'); 
 
-
+buttonAscSort.addEventListener('click', function(){
+    if(sortByAscending.checked){
+        sortByAscending.checked = false;
+    } else{
+        sortByAscending.checked = true;
+    }
+});
+buttonDescSort.addEventListener('click', function(){
+    if(sortByDescending.checked){
+        sortByDescending.checked = false;
+    } else{
+        sortByDescending.checked = true;
+    }
+});
 
 
 

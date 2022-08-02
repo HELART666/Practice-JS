@@ -165,12 +165,19 @@
                         <option value=Samsung class="variable">Samsung</option>
                         
                         
+
+                        
                         </select>
                         Enter price (optional):
                         <input type="text" id="inputGTE" class="form__input" placeholder="From">
                         <input type="text" id="inputLTE" class="form__input" placeholder="To">
-
                         <button class="get__control" data-action="get">Filter</button>
+                        <div class="sort__wrapper">
+                            Enter sort (optional): <span class="sort__descript" id="by__asc">By ascending</span>
+                            <input type="radio" id="ascending" class="ascending" name="sort">
+                            <div class="sort__descript" id="by__desc">By descending</div>
+                            <input type="radio" id="descending" class="descending" name="sort">
+                        </div>
                     </form>
                     <button class="reset" data-action="reset">Reset</button>
                     <div class="most__selled__items items" id="products-container">

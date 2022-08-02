@@ -6,6 +6,12 @@ const listTotalPrice = document.querySelector('.purchases__price');
 
 listTotalPrice.classList.add('nones');
 
+let getStr = `/posts`;
+
+let ascending = "";
+let descending = "";
+
+
 cardPrice();
 
 let resp = form.querySelector('#selectID').value; 
@@ -26,6 +32,20 @@ form.addEventListener('submit', function(event){
     const GTE = form.querySelector('#inputGTE'); 
     const LTE = form.querySelector('#inputLTE'); 
 
+    const sortByAscending = form.querySelector('#ascending'); 
+    const sortByDescending= form.querySelector('#descending'); 
+
+    if(sortByAscending.checked){
+        ascending = "ascending";
+    } else{
+        ascending = "";
+    }
+    if(sortByDescending.checked){
+        descending = "descending";
+    } else{
+        descending = "";
+    }
+    
     const data = {
         name: name.value,
         gte: GTE.value,
@@ -35,13 +55,13 @@ form.addEventListener('submit', function(event){
     resp = data.name;
     priceGTE = data.gte;
     priceLTE = data.lte;
-    return(data.name);
+    
+    return data;
 });
 
 
 
-
-getProducts('/posts');
+getProducts(getStr);
 
 let counter = 1;
 
@@ -71,16 +91,45 @@ window.addEventListener('click', function(event){
     }
 
     if(event.target.dataset.action === "get"){
+        console.log
         deleteItems();
         if(priceGTE.length == 0 && priceLTE.length == 0){
-            getProducts(`/posts?manufacturer=${resp}`);
+            getStr = `/posts?manufacturer=${resp}`;
+            if(ascending.length > 0){
+                getStr += `&_sort=price&_order=asc`;
+            }
+            if(descending.length > 0){
+                getStr += `&_sort=price&_order=desc`;
+            }
+            getProducts(getStr);
         } else if(priceGTE.length == 0 && priceLTE.length != 0){
-            getProducts(`/posts?manufacturer=${resp}&price_lte=${parseInt(priceLTE)}`);
+            getStr = `/posts?manufacturer=${resp}&price_lte=${parseInt(priceLTE)}`;
+            if(ascending.length > 0){
+                getStr += `&_sort=price&_order=asc`;
+            }
+            if(descending.length > 0){
+                getStr += `&_sort=price&_order=desc`;
+            }
+            getProducts(getStr);
         }
          else if(priceLTE.length == 0){
-            getProducts(`/posts?manufacturer=${resp}&price_gte=${parseInt(priceGTE)}`);
+            getStr = `/posts?manufacturer=${resp}&price_gte=${parseInt(priceGTE)}`;
+            if(ascending.length > 0){
+                getStr += `&_sort=price&_order=asc`;
+            }
+            if(descending.length > 0){
+                getStr += `&_sort=price&_order=desc`;
+            }
+            getProducts(getStr);
         } else if(priceLTE.length != 0 && priceGTE.length != 0){
-            getProducts(`/posts?manufacturer=${resp}&price_gte=${parseInt(priceGTE)}&price_lte=${parseInt(priceLTE)}`);
+            getStr = `/posts?manufacturer=${resp}&price_gte=${parseInt(priceGTE)}&price_lte=${parseInt(priceLTE)}`;
+            if(ascending.length > 0){
+                getStr += `&_sort=price&_order=asc`;
+            }
+            if(descending.length > 0){
+                getStr += `&_sort=price&_order=desc`;
+            }
+            getProducts(getStr);
         }
      }
      if(event.target.dataset.action === "reset"){
